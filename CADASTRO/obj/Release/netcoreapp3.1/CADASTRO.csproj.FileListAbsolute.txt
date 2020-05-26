@@ -1,0 +1,6 @@
+C:\Dev\WEB\CADASTRO\obj\Release\netcoreapp3.1\CADASTRO.AssemblyInfoInputs.cache
+C:\Dev\WEB\CADASTRO\obj\Release\netcoreapp3.1\CADASTRO.AssemblyInfo.cs
+C:\Dev\WEB\CADASTRO\obj\Release\netcoreapp3.1\CADASTRO.csproj.CoreCompileInputs.cache
+C:\Dev\WEB\CADASTRO\obj\Release\netcoreapp3.1\CADASTRO.MvcApplicationPartsAssemblyInfo.cache
+C:\Dev\WEB\CADASTRO\obj\Release\netcoreapp3.1\CADASTRO.RazorAssemblyInfo.cache
+C:\Dev\WEB\CADASTRO\obj\Release\netcoreapp3.1\CADASTRO.RazorAssemblyInfo.cs

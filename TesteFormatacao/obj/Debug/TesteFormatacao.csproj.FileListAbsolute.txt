@@ -1,0 +1,10 @@
+C:\Dev\WEB\TesteFormatacao\bin\Debug\TesteFormatacao.exe.config
+C:\Dev\WEB\TesteFormatacao\bin\Debug\TesteFormatacao.exe
+C:\Dev\WEB\TesteFormatacao\bin\Debug\TesteFormatacao.pdb
+C:\Dev\WEB\TesteFormatacao\obj\Debug\TesteFormatacao.csprojAssemblyReference.cache
+C:\Dev\WEB\TesteFormatacao\obj\Debug\TesteFormatacao.Form1.resources
+C:\Dev\WEB\TesteFormatacao\obj\Debug\TesteFormatacao.Properties.Resources.resources
+C:\Dev\WEB\TesteFormatacao\obj\Debug\TesteFormatacao.csproj.GenerateResource.cache
+C:\Dev\WEB\TesteFormatacao\obj\Debug\TesteFormatacao.csproj.CoreCompileInputs.cache
+C:\Dev\WEB\TesteFormatacao\obj\Debug\TesteFormatacao.exe
+C:\Dev\WEB\TesteFormatacao\obj\Debug\TesteFormatacao.pdb
