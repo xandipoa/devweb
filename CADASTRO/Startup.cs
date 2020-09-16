@@ -5,14 +5,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Caching;
 using Microsoft.EntityFrameworkCore;
-
 using CADASTRO.Modelos.Contexto;
-;
-
 using Microsoft.Extensions.Logging;
-
 
 
 namespace CADASTRO
@@ -31,7 +26,8 @@ namespace CADASTRO
         {
             services.AddDbContext<Contexto>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             
-            services.AddControllers();
+            services.AddControllers(options => options.EnableEndpointRouting = false);
+            //services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,10 +44,12 @@ namespace CADASTRO
             }
 
             app.UseStaticFiles();
-            
-            app.UseMvc(routes => {
-                routes.MapRoute(name: "default",
-                    template: "{controller=Cidade}/{action=Index}/{codigo}");
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Cidade}/{action=Index}/{Id}");
             });
         }
     }

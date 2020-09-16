@@ -10,9 +10,7 @@ using CADASTRO.Modelos.Contexto;
 using CADASTRO.Modelos.Entidades;
 
 namespace CADASTRO.Controllers
-{
-    [Route("api/[Cidadescontroller]")]
-    [ApiController]
+{    
     public class CidadesController : Controller
     {
         private readonly Contexto _contexto;
@@ -53,10 +51,9 @@ namespace CADASTRO.Controllers
         }
                 
         [HttpGet]
-        public IActionResult Edit(int codigo)
+        public IActionResult Edit(int Id)
         {
-            var cidade = _contexto.Cidade.Find(codigo);
-
+            var cidade = _contexto.Cidade.Find(Id);
             CarregaUfCidade();
             return View(cidade);
         }
@@ -75,14 +72,13 @@ namespace CADASTRO.Controllers
             {
                 CarregaUfCidade();
                 return View(cidade);
-            }
-           
+            }           
         }
 
         [HttpGet]
-        public IActionResult Delete(int codigo)
+        public IActionResult Delete(int Id)
         {
-            var cidade = _contexto.Cidade.Find(codigo);
+            var cidade = _contexto.Cidade.Find(Id);
             CarregaUfCidade();
             return View(cidade);
         }
@@ -90,7 +86,7 @@ namespace CADASTRO.Controllers
         [HttpPost]
         public IActionResult Delete(Cidade _cidade)
         {
-            var cidade = _contexto.Cidade.Find(_cidade.codigo);
+            var cidade = _contexto.Cidade.Find(_cidade.Id);
 
             if (cidade != null)
             {
@@ -104,9 +100,9 @@ namespace CADASTRO.Controllers
         }
 
         [HttpGet]
-        public IActionResult Details(int codigo)
+        public IActionResult Details(int Id)
         {
-            var cidade = _contexto.Cidade.Find(codigo);
+            var cidade = _contexto.Cidade.Find(Id);
             CarregaUfCidade();
             return View(cidade);
         }
@@ -141,8 +137,9 @@ namespace CADASTRO.Controllers
                 new SelectListItem{ Value = "24", Text = "SC"},
                 new SelectListItem{ Value = "25", Text = "SP"},
                 new SelectListItem{ Value = "26", Text = "SE"},
-                new SelectListItem{ Value = "27", Text = "TO"},
+                new SelectListItem{ Value = "27", Text = "TO"}
             };
+
             ViewBag.UfCidade = ListaUf;
         }     
         

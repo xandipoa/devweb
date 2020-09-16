@@ -13,19 +13,19 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="codigo" class="control-label"></label>
-                <input asp-for="codigo" class="form-control" />
-                <span asp-validation-for="codigo" class="text-danger"></span>
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="nome" class="control-label"></label>
-                <input asp-for="nome" class="form-control" />
-                <span asp-validation-for="nome" class="text-danger"></span>
+                <label asp-for="NomeCidade" class="control-label"></label>
+                <input asp-for="NomeCidade" class="form-control" />
+                <span asp-validation-for="NomeCidade" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="uf" class="control-label"></label>
-                <select asp-for="uf" class="form-control" asp-items=@ViewBag.UfCidade></select>
-                <span asp-validation-for="uf" class="text-danger"></span>
+                <label asp-for="UF" class="control-label"></label>
+                <select asp-for="UF" class="form-control" asp-item=@ViewBag.UfCidade ></select>
+                <span asp-validation-for="UF" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

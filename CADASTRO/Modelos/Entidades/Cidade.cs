@@ -11,13 +11,13 @@ namespace CADASTRO.Modelos.Entidades
     [Table("Cidade")]
     public class Cidade
     {
-        [Key]
-        public int codigo { get; set; }
+        [Display(Description = "Código")]
+        public int Id { get; set; }
 
         [Display(Description = "Nome da Cidade")]
-        public string nome { get; set; }
+        public string NomeCidade { get; set; }
 
         [Display(Description = "UF")]
-        public string uf { get; set; }
+        public int UF { get; set; }
     }
 }
