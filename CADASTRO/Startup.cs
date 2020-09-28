@@ -1,16 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Cadastro.Models.Contexto;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using CADASTRO.Modelos.Contexto;
-using Microsoft.Extensions.Logging;
 
-
-namespace CADASTRO
+namespace Cadastro
 {
     public class Startup
     {
@@ -24,10 +25,11 @@ namespace CADASTRO
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<Contexto>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
+            services.AddDbContext<Contexto>(option => option.UseSqlServer(Configuration["Data:UCASAppDatabase:DefaultConnection"]));
+
             services.AddControllers(options => options.EnableEndpointRouting = false);
-            //services.AddMvc();
+            
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,12 +37,13 @@ namespace CADASTRO
         {
             if (env.IsDevelopment())
             {
-                app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
 
             app.UseStaticFiles();
@@ -49,7 +52,7 @@ namespace CADASTRO
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Cidade}/{action=Index}/{Id}");
+                    template: "{controller=Cidade}/{action=Index}/{id?}");
             });
         }
     }

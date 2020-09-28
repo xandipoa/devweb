@@ -11,13 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("ecda5742-3d7b-4de1-8eb0-23ab2ef5ec35")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("CADASTRO")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Cadastro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("CADASTRO")]
-[assembly: System.Reflection.AssemblyTitleAttribute("CADASTRO")]
+[assembly: System.Reflection.AssemblyProductAttribute("Cadastro")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Cadastro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.

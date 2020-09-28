@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "mssql2": {
-      "type": "mssql.onprem",
-      "connectionId": "DADOS",
-      "secretStore": "LocalSecretsFile"
-    }
-  }
-}
