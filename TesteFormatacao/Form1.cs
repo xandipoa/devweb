@@ -20,7 +20,7 @@ namespace TesteFormatacao
         private void button1_Click(object sender, EventArgs e)
         {
             String strTexto = entrada.Text.ToString();
-            //Int32 tamMax = 0;
+            
             Int32 tamFaltam = 76 - strTexto.Length;
             Int32 tamIninicial = 0;
             String aux_2 = "";
@@ -28,7 +28,7 @@ namespace TesteFormatacao
             String aux_final = "";
             Int32 strTam = 0;
             Int32 strPos = 0;
-            //Int32 pos = 0;
+            
             while (tamIninicial < 76)
             {
                 for (int varCont = 0; strTexto.Length > varCont; varCont++)
@@ -41,26 +41,21 @@ namespace TesteFormatacao
                             strTam = aux_2.Length + 1;
                             aux_2 = aux_2.PadRight(strTam) + aux_comp;
                             aux_final = aux_2 + strTexto.Substring(varCont, strPos);
-                            //tamIninicial = tamIninicial + 1;
+                           
                     
                         }
                         else
                         {
                             aux_final = aux_2 + strTexto.Substring(varCont, strPos);
                             aux_2 = aux_2 + aux_comp;                        
-                            //tamIninicial = tamIninicial +1;
+                            
 
                         }
-                    /*                       
-                    strTam = strTexto.Length - varCont;
-                    aux_final = aux_2 + strTexto.Substring(varCont, strTam);
-                    strTam = aux_final.Length;
-                    */
+                   
                     strTam = aux_final.Length;
                     if (strTam >= 76)
                         {
-                        //strTam = strTexto.Length - varCont;
-
+                       
                         tamIninicial = strTam;
                         resultado.Text = aux_final.ToString();
                             textBox1.Text = strTam.ToString();
@@ -68,11 +63,7 @@ namespace TesteFormatacao
                         }
                                             
                 }
-                /*
-                strTam = strTexto.Length - varCont;
-                aux_final = aux_2 + strTexto.Substring(varCont, strTam);
-                strTam = aux_final.Length;
-                */
+                
                 strTexto = aux_2;
                 aux_2 = "";
                 if (tamIninicial > 76)
