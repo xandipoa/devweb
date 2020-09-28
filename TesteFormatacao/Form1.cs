@@ -17,59 +17,62 @@ namespace TesteFormatacao
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Recebe um texto e justifica ele com 80 colunas inserindo espaços em branco
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            String strTexto = entrada.Text.ToString();
-            
-            Int32 tamFaltam = 76 - strTexto.Length;
-            Int32 tamIninicial = 0;
-            String aux_2 = "";
-            String aux_comp = "";
-            String aux_final = "";
-            Int32 strTam = 0;
+            String textoEntrada = entrada.Text.ToString();            
+            Int32 quantidadeEspacosParaCompletar = 80 - textoEntrada.Length;
+            Int32 tamanhoIninicial = 0;
+            String textoTemporario = "";
+            String textoParaComparacao = "";
+            String textoSaida = "";
+            Int32 tamanhoTextoTemporario = 0;
             Int32 strPos = 0;
             
-            while (tamIninicial < 76)
+            while (tamanhoIninicial < 80)
             {
-                for (int varCont = 0; strTexto.Length > varCont; varCont++)
+                for (int varCont = 0; textoEntrada.Length > varCont; varCont++)
                 {
-                    aux_comp = strTexto.Substring(varCont, 1);
-                    strPos = strTexto.Length - varCont;
-                    if (aux_comp.ToString() == " ")
+                    textoParaComparacao = textoEntrada.Substring(varCont, 1);
+                    strPos = textoEntrada.Length - varCont;
+                    if (textoParaComparacao.ToString() == " ")
                         {
                             
-                            strTam = aux_2.Length + 1;
-                            aux_2 = aux_2.PadRight(strTam) + aux_comp;
-                            aux_final = aux_2 + strTexto.Substring(varCont, strPos);
+                            tamanhoTextoTemporario = textoTemporario.Length + 1;
+                            textoTemporario = textoTemporario.PadRight(tamanhoTextoTemporario) + textoParaComparacao;
+                            textoSaida = textoTemporario + textoEntrada.Substring(varCont, strPos);
                            
                     
                         }
                         else
                         {
-                            aux_final = aux_2 + strTexto.Substring(varCont, strPos);
-                            aux_2 = aux_2 + aux_comp;                        
+                            textoSaida = textoTemporario + textoEntrada.Substring(varCont, strPos);
+                            textoTemporario = textoTemporario + textoParaComparacao;                        
                             
 
                         }
                    
-                    strTam = aux_final.Length;
-                    if (strTam >= 76)
-                        {
-                       
-                        tamIninicial = strTam;
-                        resultado.Text = aux_final.ToString();
-                            textBox1.Text = strTam.ToString();
+                        tamanhoTextoTemporario = textoSaida.Length;
+                        if (tamanhoTextoTemporario >= 80)
+                        {                                                 
+                            tamanhoIninicial = tamanhoTextoTemporario;
+                            resultado.Text = textoSaida.ToString();
+                            textBox1.Text = tamanhoTextoTemporario.ToString();
                             break;
                         }
                                             
                 }
                 
-                strTexto = aux_2;
-                aux_2 = "";
-                if (tamIninicial > 76)
+                textoEntrada = textoTemporario;
+                textoTemporario = string.Empty;
+                if (tamanhoIninicial > 80)
                 {
-                    resultado.Text = aux_final.ToString();
-                    textBox1.Text = tamIninicial.ToString();
+                    resultado.Text = textoSaida.ToString();
+                    textBox1.Text = tamanhoIninicial.ToString();
                     break;
                 }
              
