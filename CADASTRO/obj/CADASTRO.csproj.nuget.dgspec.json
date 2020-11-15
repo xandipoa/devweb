@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DEV\\CSharp\\Cadastro\\Cadastro.csproj": {}
+    "C:\\DEV\\devweb\\CADASTRO\\Cadastro.csproj": {}
   },
   "projects": {
-    "C:\\DEV\\CSharp\\Cadastro\\Cadastro.csproj": {
+    "C:\\DEV\\devweb\\CADASTRO\\Cadastro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DEV\\CSharp\\Cadastro\\Cadastro.csproj",
+        "projectUniqueName": "C:\\DEV\\devweb\\CADASTRO\\Cadastro.csproj",
         "projectName": "Cadastro",
-        "projectPath": "C:\\DEV\\CSharp\\Cadastro\\Cadastro.csproj",
+        "projectPath": "C:\\DEV\\devweb\\CADASTRO\\Cadastro.csproj",
         "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-        "outputPath": "C:\\DEV\\CSharp\\Cadastro\\obj\\",
+        "outputPath": "C:\\DEV\\devweb\\CADASTRO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
