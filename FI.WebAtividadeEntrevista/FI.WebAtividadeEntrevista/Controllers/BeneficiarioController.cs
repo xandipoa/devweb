@@ -1,6 +1,5 @@
 ﻿using FI.AtividadeEntrevista.BLL;
 using WebAtividadeEntrevista.Models;
-using WebAtividadeEntrevista.Validacao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,26 +42,25 @@ namespace WebAtividadeEntrevista.Controllers
             }
             else
             {
-                string cpfDoBeneficiario = model.CPF;
-                bool validaCPF = ValidaCPF.IsCpf(cpfDoBeneficiario);
-                if (!validaCPF)
-                {
-                    return Json("O número é um CPF Inválido !");
-                }
+                ///Remover os caracteres não numéricos
+                string cpfCompleto = model.CPF;
+                string cpfBasico = cpfCompleto.Replace(".", "").Replace("-", "");
 
-                bool cpfCadastrado = VerificaCPF.CPFExiste("BENEFICIARIOS", cpfDoBeneficiario);
-                if (cpfCadastrado)
-                {
-                    return Json("O CPF já existe no cadastro!");
-                }
+                bool cpfCadastrado = bo.VerificarExistencia(cpfBasico);
 
-                model.Id = bo.Incluir(new Beneficiario()
+                if (!cpfCadastrado)
                 {
-                    Nome = model.Nome,
-                    CPF = model.CPF,
-                    IdCliente = model.IdCliente
-                });
-                
+                    model.Id = bo.Incluir(new Beneficiario()
+                    {
+                        Nome = model.Nome,
+                        CPF = cpfBasico,
+                        IdCliente = model.IdCliente
+                    });
+                }
+                else
+                    return Json("CPF já cadastrado!");
+
+
                 return Json("Cadastro efetuado com sucesso");
             }
         }
@@ -83,13 +81,24 @@ namespace WebAtividadeEntrevista.Controllers
             }
             else
             {
-                bo.Alterar(new Beneficiario()
+                ///Remover os caracteres não numéricos
+                string cpfCompleto = model.CPF;
+                string cpfBasico = cpfCompleto.Replace(".", "").Replace("-", "");
+
+                bool cpfCadastrado = bo.VerificarExistencia(cpfBasico);
+
+                if (!cpfCadastrado)
                 {
-                    Id = model.Id,                   
-                    CPF = model.CPF,
-                    IdCliente = model.IdCliente
-                });
-                               
+                    bo.Alterar(new Beneficiario()
+                    {
+                        Id = model.Id,                   
+                        CPF = cpfBasico,
+                        IdCliente = model.IdCliente
+                    });
+                }
+                else
+                    return Json("CPF já cadastrado!");
+
                 return Json("Cadastro alterado com sucesso");
             }
         }

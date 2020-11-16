@@ -1,6 +1,6 @@
 ﻿
-$(document).ready(function () {
-    $('#formCadastroBeneficiario').submit(function (e) {
+    $(document).ready(function () {
+        $('#formCadastroBeneficiario').submit(function (e) {
         e.preventDefault();
         $.ajax({
             url: urlPost,
@@ -8,24 +8,24 @@ $(document).ready(function () {
             data: {
                 "NOME": $(this).find("#Nome").val(),
                 "IdCliente": $(this).find("#id").val(),
-                "CPF": $(this).find("#CPF").val(),                
+                "CPF": $(this).find("#CPF").val(),
             },
             error:
-            function (r) {
-                if (r.status == 400)
-                    ModalDialog("Ocorreu um erro", r.responseJSON);
-                else if (r.status == 500)
-                    ModalDialog("Ocorreu um erro", "Ocorreu um erro interno no servidor.");
+                function (r) {
+                    if (r.status == 400)
+                        ModalDialog("Ocorreu um erro", r.responseJSON);
+                    else if (r.status == 500)
+                        ModalDialog("Ocorreu um erro", "Ocorreu um erro interno no servidor.");
             },
             success:
-            function (r) {
-                ModalDialog("Sucesso!", r)
-                $("#formCadastroBeneficiario")[0].reset();
-            }
-        });
-    })
-    
-})
+                function (r) {
+                    ModalDialog("Sucesso!", r)
+                    $("#formCadastroBeneficiario")[0].reset();
+                }
+          });
+        })
+     })
+
 
 function ModalDialog(titulo, texto) {
     var random = Math.random().toString().replace('.', '');

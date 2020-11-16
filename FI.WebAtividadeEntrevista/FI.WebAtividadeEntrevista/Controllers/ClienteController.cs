@@ -1,6 +1,5 @@
 ﻿using FI.AtividadeEntrevista.BLL;
 using WebAtividadeEntrevista.Models;
-using WebAtividadeEntrevista.Validacao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,37 +42,37 @@ namespace WebAtividadeEntrevista.Controllers
             }
             else
             {
-                string cpfDoCliente = model.CPF;
-                bool validaCPF = ValidaCPF.IsCpf(cpfDoCliente);
-                if (!validaCPF)
-                {
-                    return Json("O número é um CPF Inválido !");
-                }
+                //Remover os caracteres não numéricos
+                string cpfCompleto = model.CPF;
+                string  cpfBasico = cpfCompleto.Replace(".", "").Replace("-", "");
+                
+                bool cpfCadastrado = bo.VerificarExistencia(cpfBasico);
 
-                bool cpfCadastrado = VerificaCPF.CPFExiste("CLIENTES",cpfDoCliente);
-                if (cpfCadastrado)
+                if (!cpfCadastrado)
                 {
-                    return Json("O CPF já existe no cadastro!");
-                }
 
-                model.Id = bo.Incluir(new Cliente()
-                {
-                    CEP = model.CEP,
-                    Cidade = model.Cidade,
-                    Email = model.Email,
-                    Estado = model.Estado,
-                    Logradouro = model.Logradouro,
-                    Nacionalidade = model.Nacionalidade,
-                    Nome = model.Nome,
-                    Sobrenome = model.Sobrenome,
-                    CPF = model.CPF,
-                    Telefone = model.Telefone
-                });
+                    model.Id = bo.Incluir(new Cliente()
+                    {
+                        CEP = model.CEP,
+                        Cidade = model.Cidade,
+                        Email = model.Email,
+                        Estado = model.Estado,
+                        Logradouro = model.Logradouro,
+                        Nacionalidade = model.Nacionalidade,
+                        Nome = model.Nome,
+                        Sobrenome = model.Sobrenome,
+                        CPF = cpfBasico,
+                        Telefone = model.Telefone
+                    });
+                }
+                else
+                    return Json("CPF já cadastrado!");
+
                 
                 return Json("Cadastro efetuado com sucesso");
             }
         }
-
+        
         [HttpPost]
         public JsonResult Alterar(ClienteModel model)
         {
@@ -90,21 +89,31 @@ namespace WebAtividadeEntrevista.Controllers
             }
             else
             {
-                bo.Alterar(new Cliente()
+                //Remover os caracteres não numéricos
+                string cpfCompleto = model.CPF;
+                string cpfBasico = cpfCompleto.Replace(".", "").Replace("-", "");
+
+                bool cpfCadastrado = bo.VerificarExistencia(cpfBasico);
+
+                if (!cpfCadastrado)
                 {
-                    Id = model.Id,
-                    CEP = model.CEP,
-                    Cidade = model.Cidade,
-                    Email = model.Email,
-                    Estado = model.Estado,
-                    Logradouro = model.Logradouro,
-                    Nacionalidade = model.Nacionalidade,
-                    Nome = model.Nome,
-                    Sobrenome = model.Sobrenome,
-                    CPF = model.CPF,
-                    Telefone = model.Telefone
-                });
-                               
+                    bo.Alterar(new Cliente()
+                    {
+                        Id = model.Id,
+                        CEP = model.CEP,
+                        Cidade = model.Cidade,
+                        Email = model.Email,
+                        Estado = model.Estado,
+                        Logradouro = model.Logradouro,
+                        Nacionalidade = model.Nacionalidade,
+                        Nome = model.Nome,
+                        Sobrenome = model.Sobrenome,
+                        CPF = cpfBasico,
+                        Telefone = model.Telefone
+                    });
+                }
+                else
+                    return Json("CPF já cadastrado!");
                 return Json("Cadastro alterado com sucesso");
             }
         }

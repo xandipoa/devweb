@@ -18,21 +18,47 @@ $(document).ready(function () {
                 "Telefone": $(this).find("#Telefone").val()
             },
             error:
+                function (r) {
+                    if (r.status == 400)
+                        ModalDialog("Ocorreu um erro", r.responseJSON);
+                    else if (r.status == 500)
+                        ModalDialog("Ocorreu um erro", "Ocorreu um erro interno no servidor.");
+                },
+            success:
+                function (r) {
+                    ModalDialog("Sucesso!", r)
+                    $("#formCadastro")[0].reset();
+                }
+        });
+        
+    })
+    
+})
+
+function ChamaBeneficiarios() {
+    alert("ENTREI");
+    $.ajax({
+        url: urlPost,
+        method: "POST",
+        data: {
+            "NOME": $(this).find("#Nome").val(),
+            "IdCliente": $(this).find("#id").val(),
+            "CPF": $(this).find("#CPF").val(),
+        },
+        error:
             function (r) {
                 if (r.status == 400)
                     ModalDialog("Ocorreu um erro", r.responseJSON);
                 else if (r.status == 500)
                     ModalDialog("Ocorreu um erro", "Ocorreu um erro interno no servidor.");
             },
-            success:
+        success:
             function (r) {
                 ModalDialog("Sucesso!", r)
-                $("#formCadastro")[0].reset();
+                $("#formCadastroBeneficiario")[0].reset();
             }
-        });
-    })
-    
-})
+    });
+}
 
 function ModalDialog(titulo, texto) {
     var random = Math.random().toString().replace('.', '');
@@ -41,7 +67,7 @@ function ModalDialog(titulo, texto) {
         '            <div class="modal-content">                                                                            ' +
         '                <div class="modal-header">                                                                         ' +
         '                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>         ' +
-        '                    <h4 class="modal-title">' + titulo + '</h4>                                                    ' +
+        '                    <h4 class="modal-title">' + titulo + 'TTT</h4>                                                    ' +
         '                </div>                                                                                             ' +
         '                <div class="modal-body">                                                                           ' +
         '                    <p>' + texto + '</p>                                                                           ' +
@@ -53,7 +79,7 @@ function ModalDialog(titulo, texto) {
         '            </div><!-- /.modal-content -->                                                                         ' +
         '  </div><!-- /.modal-dialog -->                                                                                    ' +
         '</div> <!-- /.modal -->                                                                                        ';
-
+    
     $('body').append(texto);
     $('#' + random).modal('show');
 }

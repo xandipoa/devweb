@@ -18,12 +18,12 @@ namespace WebAtividadeEntrevista.Models
         /// Nome
         /// </summary>
         [Required]
-        public string Nome { get; set; }       
+        public string Nome { get; set; }
 
         /// <summary>
         /// CPF
         /// </summary>
-        [Required]
+        [RegularExpression(@"[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}", ErrorMessage = "Digite um CPF válido!")]
         public string CPF { get; set; }
 
         /// <summary>
