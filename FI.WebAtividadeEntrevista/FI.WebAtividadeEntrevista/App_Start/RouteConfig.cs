@@ -14,6 +14,12 @@ namespace WebAtividadeEntrevista
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "Beneficiario",
+                "Beneficiario",
+                new { controller = "Beneficiario", action = "Incluir", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
