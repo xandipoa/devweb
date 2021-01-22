@@ -8480,11 +8480,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\DEV\\devweb\\CADASTRO\\Cadastro.csproj",
+      "projectUniqueName": "C:\\DEV\\devweb\\MVC\\CADASTRO\\Cadastro.csproj",
       "projectName": "Cadastro",
-      "projectPath": "C:\\DEV\\devweb\\CADASTRO\\Cadastro.csproj",
+      "projectPath": "C:\\DEV\\devweb\\MVC\\CADASTRO\\Cadastro.csproj",
       "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-      "outputPath": "C:\\DEV\\devweb\\CADASTRO\\obj\\",
+      "outputPath": "C:\\DEV\\devweb\\MVC\\CADASTRO\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8499,6 +8499,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -8510,6 +8511,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -8554,7 +8556,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

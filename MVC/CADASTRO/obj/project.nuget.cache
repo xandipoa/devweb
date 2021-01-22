@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Rq/Xanlm948LWOMfVVaFyzanDtzgyR2K9f9BMFCCQJXf+gLRI0Chnywy2PCckGRrhrMhNnWuiOS4NAVsiIJ7YQ==",
+  "dgSpecHash": "yhGR66cFGxglAoovmZqKnZ2f9dINVePYRANV7ovjjPlLzp/w4AewFCNFrA9C2cfLtcBkk5Tm210VeQ4V/MfEDg==",
   "success": true,
-  "projectFilePath": "C:\\DEV\\devweb\\CADASTRO\\Cadastro.csproj",
+  "projectFilePath": "C:\\DEV\\devweb\\MVC\\CADASTRO\\Cadastro.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
